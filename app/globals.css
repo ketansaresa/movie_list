@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.background-wrapper {
+  background-color: #093545;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.white-placeholder::placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+.custom-checkbox-container {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkbox-label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.custom-checkbox-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #224957;
+  border-radius: 5px;
+}
+
+.custom-checkbox:checked + .custom-checkbox-label::before {
+  background-color: #224957;
+}
+
+.custom-checkbox:checked + .custom-checkbox-label::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.movies-container {
+  padding: 2rem;
+  color: white;
+}
+
+.movie-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-left: 2rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: none;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #2bd17e;
+}
+
+@media (max-width: 568px) {
+  .movie-grid {
+    justify-content: center;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 568px) {
+  .movie-grid {
+    gap: 1rem;
+  }
+
+  .movies-container {
+    padding: 1rem;
+  }
+}
